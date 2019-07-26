@@ -3,7 +3,7 @@
  * Plugin Name: Integrate CPT
  * Description: Custom Post Type Integration for Themify Themes
  * Version: 1.0.0
- * Author: NMCO Media
+ * Author: Joshua White - Lead Web Developer with NMCO Media
  * Author URI: https://nmcomedia.com
  */
 
