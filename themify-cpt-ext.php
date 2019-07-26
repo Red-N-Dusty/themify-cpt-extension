@@ -1,9 +1,9 @@
 <?php 
 /**
- * Plugin Name: Integrate CPT
- * Description: Custom Post Type Integration for Themify Themes
+ * Plugin Name: Themify CPT Extension
+ * Description: This plugin is meant to extend the Themify post appearance and options to all custom post types both globally and individually.
  * Version: 1.0.0
- * Author: Joshua White - Lead Web Developer with NMCO Media
+ * Author: Joshua White - NMCO Media
  * Author URI: https://nmcomedia.com
  */
 
@@ -34,8 +34,16 @@ function nmco_cpt_admin_init() {
 }
 
 function nmco_cpt_admin_menu() {
-	add_options_page( 'CPT Themify Integration', 'CPT Themify Integration', 'manage_options', 'nmco_cpt', 'nmco_cpt_options' );
+	add_options_page( 'CPT Themify Integration', 'Themify CPT Integration', 'manage_options', 'themify_cpt_options', 'nmco_cpt_options' );
 }
+
+function nmco_cpt_add_plugin_page_settings_link( $links ) {
+	$links[] = '<a href="' .
+		admin_url( 'options-general.php?page=themify_cpt_options' ) .
+		'">' . __('Settings') . '</a>';
+	return $links;
+}
+add_filter('plugin_action_links_'.plugin_basename(__FILE__), 'nmco_cpt_add_plugin_page_settings_link');
 
 function nmco_cpt_options() {
 	include( NMCO_CPT_DIR . '/admin/cpt_options.php' );
